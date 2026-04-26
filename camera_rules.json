@@ -1,0 +1,138 @@
+{
+  "camera_01": {
+    "display_name": "Camera 1 - Small road near large gray/beige building",
+    "location": "Small road approach near the large gray/beige building",
+    "timezone": "America/Chicago",
+    "restricted_windows": [
+      {
+        "label": "No vehicle entry period",
+        "start": "00:00:00",
+        "end": "23:59:59"
+      }
+    ],
+    "approved_activity": [
+      "Foot traffic",
+      "Vehicles moving away from the large gray/beige building",
+      "Vehicles using the larger circle drive for pickup/drop-off access"
+    ],
+    "prohibited_rules": [
+      {
+        "rule_id": "camera1_any_vehicle_entering_campus",
+        "label": "Vehicle classified as entering campus",
+        "object_type": "vehicle",
+        "classification": "entering_campus",
+        "sar_reason": "Vehicle traffic was classified as entering campus during a restricted access period."
+      },
+      {
+        "rule_id": "camera1_vehicle_on_small_road_toward_building",
+        "label": "Vehicle on smaller road moving toward large gray/beige building",
+        "object_type": "vehicle",
+        "classification": "entering_campus",
+        "route_contains": [
+          "road"
+        ],
+        "movement_contains": [
+          "toward"
+        ],
+        "sar_reason": "Vehicle traffic moved inbound toward the large gray/beige building during a restricted access period."
+      },
+      {
+        "rule_id": "camera1_uncertain_vehicle_toward_building",
+        "label": "Vehicle with uncertain classification moving toward building",
+        "object_type": "vehicle",
+        "classification": "other",
+        "movement_contains": [
+          "toward",
+          "building"
+        ],
+        "sar_reason": "Vehicle movement appeared to be inbound toward the large gray/beige building, but the model classified the event as uncertain."
+      },
+      {
+        "rule_id": "camera1_uncertain_vehicle_approaching_building",
+        "label": "Vehicle approaching large gray/beige building",
+        "object_type": "vehicle",
+        "classification": "other",
+        "movement_contains": [
+          "approaching",
+          "building"
+        ],
+        "sar_reason": "Vehicle movement appeared to approach the large gray/beige building during a restricted access period."
+      },
+      {
+        "rule_id": "camera1_uncertain_vehicle_inbound",
+        "label": "Vehicle moving inward toward campus",
+        "object_type": "vehicle",
+        "classification": "other",
+        "movement_contains": [
+          "inbound"
+        ],
+        "sar_reason": "Vehicle movement appeared inbound toward the campus interior during a restricted access period."
+      }
+    ]
+  },
+  "camera_02": {
+    "display_name": "Camera 2 - East service road",
+    "location": "East service road",
+    "timezone": "America/Chicago",
+    "restricted_windows": [
+      {
+        "label": "No vehicle entry period",
+        "start": "18:00:00",
+        "end": "06:00:00"
+      }
+    ],
+    "approved_activity": [
+      "Foot traffic",
+      "Vehicles exiting campus away from the inner campus area"
+    ],
+    "prohibited_rules": [
+      {
+        "rule_id": "camera2_vehicle_entering_service_road",
+        "label": "Vehicle entering campus on service road",
+        "object_type": "vehicle",
+        "classification": "entering_campus",
+        "route_contains": [
+          "service road"
+        ],
+        "movement_contains": [
+          "away from",
+          "maintenance building"
+        ],
+        "sar_reason": "Vehicle traffic entered campus during a restricted access period."
+      }
+    ]
+  },
+  "camera_03": {
+    "display_name": "Camera 3 - Circle drive",
+    "location": "Large circle drive / pickup-dropoff access",
+    "timezone": "America/Chicago",
+    "restricted_windows": [
+      {
+        "label": "No vehicle entry period",
+        "start": "18:00:00",
+        "end": "06:00:00"
+      }
+    ],
+    "approved_activity": [
+      "Foot traffic",
+      "Pickup/drop-off circulation in the large circle drive",
+      "Vehicles exiting campus"
+    ],
+    "prohibited_rules": [
+      {
+        "rule_id": "camera3_vehicle_bypassing_circle_drive",
+        "label": "Vehicle bypasses approved circle drive and enters campus",
+        "object_type": "vehicle",
+        "classification": "entering_campus",
+        "route_contains": [
+          "restricted access road"
+        ],
+        "movement_contains": [
+          "toward",
+          "campus interior"
+        ],
+        "sar_reason": "Vehicle left the approved pickup/drop-off circulation route and entered campus during a restricted period."
+      }
+    ]
+  }
+}
